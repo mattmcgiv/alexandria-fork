@@ -16,6 +16,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import it.jaschke.alexandria.api.Callback;
@@ -45,10 +46,13 @@ public class MainActivity extends ActionBarActivity implements NavigationDrawerF
             // handle scan result
             String target_isbn = scanResult.getContents();
             Log.d("ZXing result", "Result: " + scanResult.getContents());
+            EditText et = (EditText) findViewById(R.id.ean);
+            et.setText(target_isbn);
         }
         else {
             Log.d("ZXing result", "Null");
         }
+
         // else continue with any other code you need in the method
     }
     @Override
